@@ -85,10 +85,11 @@ namespace skrzyzowanie
 
         }
 
-        public Tuple<int, int> modifyState(bool[] swiatla)
+        public Tuple<int, int, int> modifyState(bool[] swiatla)
         {
             int najwieksza = 0;
             int suma = 0;
+            int iloscStojacych = 0;
 
             for (int i = 0; i < swiatla.Length;i++)
             {
@@ -100,7 +101,13 @@ namespace skrzyzowanie
                     if (wyzerowana > najwieksza) najwieksza = wyzerowana;
                 }
             }
-            Tuple<int, int> zmiany = new Tuple<int, int>(najwieksza, suma);//największa,suma
+
+            for(int i=0;i<wszystkiePasy.Count;i++)
+            {
+                Pas foo = (Pas)wszystkiePasy[i];
+                iloscStojacych+=foo.getIloscSamochodow();
+            }
+            Tuple<int, int, int> zmiany = new Tuple<int, int, int>(najwieksza, suma, iloscStojacych);//największa,suma
             return zmiany;
         }
 
