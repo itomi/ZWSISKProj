@@ -8,7 +8,7 @@ namespace skrzyzowanie
 {
     class Skrzyzowanie
     {
-        Dictionary<String, Pas> Pasy=new Dictionary<string,Pas>();
+        Dictionary<String, Pas> Pasy = new Dictionary<string,Pas>();
 
 
 
