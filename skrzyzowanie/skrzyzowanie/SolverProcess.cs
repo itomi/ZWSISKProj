@@ -25,16 +25,16 @@ namespace skrzyzowanie
             float processValue = 0;
             for( int stepNumber = 0 ; stepNumber < listOfSteps.Count ; stepNumber++ ) {
                 SolverStep currentStep = (SolverStep)listOfSteps[stepNumber];
-                float stepMultiplier = stepNumber;
                 float currentPassed = currentStep.getCarsPassed();
                 float maxPerPasPassed = currentStep.getMaxPasPassed();
                 float awaitingCars = currentStep.getAwaitingCarsCount();
 
-                float value = currentPassed/(awaitingCars*maxPerPasPassed);
+                float value = currentPassed/(( (Convert.ToBoolean(awaitingCars) ? awaitingCars: 1) * (Convert.ToBoolean(maxPerPasPassed) ? maxPerPasPassed :1 )));
 
                 processValue += value;
             }
-            return (float)(processValue / Math.Pow((double)listOfSteps.Count, 2.0));
+            float returrned = (float)(processValue / Math.Pow((double)listOfSteps.Count, 2.0));
+            return returrned;
         }
     }
 }

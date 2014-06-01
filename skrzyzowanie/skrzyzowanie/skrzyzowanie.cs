@@ -85,6 +85,16 @@ namespace skrzyzowanie
 
         }
 
+        private void setPasy(ArrayList pasy)
+        {
+            this.wszystkiePasy = pasy;
+        }
+
+        private void setDictPasy(Dictionary<String, List<Pas>> dict)
+        {
+            this.Pasy = dict;
+        }
+
         public Tuple<int, int, int> modifyState(bool[] swiatla)
         {
             int najwieksza = 0;
@@ -124,6 +134,30 @@ namespace skrzyzowanie
             }
             return true;
         }
+
+        public Skrzyzowanie copy()
+        {
+            Skrzyzowanie s = new Skrzyzowanie();
+            ArrayList listaPasow = new ArrayList();
+            Dictionary<String, List<Pas> > dictionary = new Dictionary<String,List<Pas>>();
+
+            foreach(Pas pas in this.wszystkiePasy) {
+                listaPasow.Add(pas.copy());
+            }
+
+            s.setPasy(listaPasow);
+
+            Pas[] pasy = (Pas[])(listaPasow.GetRange(0, 3).ToArray());
+            dictionary.Add("N", new List<Pas>( pasy ));
+            pasy = (Pas[])(listaPasow.GetRange(4, 3).ToArray());
+            dictionary.Add("E", new List<Pas>( pasy ));
+            pasy = (Pas[])(listaPasow.GetRange(7, 3).ToArray());
+            dictionary.Add("W", new List<Pas>( pasy ));
+            pasy = (Pas[])(listaPasow.GetRange(10, 3).ToArray());
+            dictionary.Add("S", new List<Pas>( pasy ));
+
+            return s;
+        }
     }
 
     enum kierunek { 
@@ -158,6 +192,11 @@ namespace skrzyzowanie
             int foo = iloscSamochodow;
             iloscSamochodow = 0;
             return foo;
+        }
+
+        public Pas copy()
+        {
+            return new Pas(this.kier, this.iloscSamochodow, this.czyRuchDozwolony, this.kosztWlaczenia);
         }
     }
 }

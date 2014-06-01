@@ -8,7 +8,7 @@ namespace skrzyzowanie
 {
     class GeneratorSkrzyzowania
     {
-        public void generujSkrzyzowanie(int minLiczbaSamochodow, int maxLiczbaSamochodow, int wartoscLewo, int wartosProsto, int wartoscPrawo)
+        public Skrzyzowanie generujSkrzyzowanie(int minLiczbaSamochodow, int maxLiczbaSamochodow, int wartoscLewo, int wartosProsto, int wartoscPrawo)
         {
             Random random=new Random();
 
@@ -44,8 +44,9 @@ namespace skrzyzowanie
             {
                 rv = random.Next(-wartoscPrawo + 1);
             }
+
+            return new Skrzyzowanie(nl, nf, nr, el, ef, er, wl, wf, wr, sl, sf, sr, lv, fv, rv);
+
         }
-
-
     }
 }
