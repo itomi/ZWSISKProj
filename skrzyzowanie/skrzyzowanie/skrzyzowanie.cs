@@ -47,17 +47,19 @@ namespace skrzyzowanie
 
         }
 
-        public Skrzyzowanie modifyState(bool[] swiatla)
+        public int modifyState(bool[] swiatla)
         {
+            int najwieksza = 0;
             for (int i = 0; i < swiatla.Length;i++)
             {
                 if (swiatla[i])
                 {
                     Pas foo = (Pas)wszystkiePasy[i];
-                    foo.wyzeroj();
+                    int wyzerowana = foo.wyzeroj();
+                    if (wyzerowana > najwieksza) najwieksza = wyzerowana;
                 }
             }
-            return this;
+            return najwieksza;
         }
 
         public bool isEmpty()
@@ -102,9 +104,11 @@ namespace skrzyzowanie
             return this.iloscSamochodow;
         }
 
-        public void wyzeroj()
+        public int wyzeroj()
         {
+            int foo = iloscSamochodow;
             iloscSamochodow = 0;
+            return foo;
         }
     }
 }
