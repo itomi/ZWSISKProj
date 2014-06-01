@@ -10,7 +10,26 @@ namespace skrzyzowanie
         Dictionary<String, List<Pas> > Pasy = new Dictionary<String,List<Pas> >();
 
         public Skrzyzowanie() {
-            this.Pasy.Add("N", new List<Pas> { new Pas(kierynek) });
+            this.Pasy.Add("N", new List<Pas> { 
+                new Pas(kierunek.lewo, 10, false, 5),
+                new Pas(kierunek.prosto, 10,false, 2),
+                new Pas(kierunek.prawo, 10, false, 1) 
+            });
+            this.Pasy.Add("E", new List<Pas> { 
+                new Pas(kierunek.lewo, 10, false, 5),
+                new Pas(kierunek.prosto, 10,false, 2),
+                new Pas(kierunek.prawo, 10, false, 1) 
+            });
+            this.Pasy.Add("W", new List<Pas> { 
+                new Pas(kierunek.lewo, 10, false, 5),
+                new Pas(kierunek.prosto, 10,false, 2),
+                new Pas(kierunek.prawo, 10, false, 1) 
+            });
+            this.Pasy.Add("S", new List<Pas> { 
+                new Pas(kierunek.lewo, 10, false, 5),
+                new Pas(kierunek.prosto, 10,false, 2),
+                new Pas(kierunek.prawo, 10, false, 1) 
+            });
         }
     }
 
