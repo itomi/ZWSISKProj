@@ -9,7 +9,7 @@ namespace skrzyzowanie
     class Walidator
     {
 
-        bool walidacja(bool[] wektor)
+        public bool walidacja(bool[] wektor)
         {
             if (wektor.Length != 12)
             {
