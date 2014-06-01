@@ -49,7 +49,7 @@ namespace skrzyzowanie
                     }
                 }
             }
-            return false;
+            return true;
         }
     }
 
