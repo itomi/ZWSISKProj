@@ -47,19 +47,23 @@ namespace skrzyzowanie
 
         }
 
-        public int modifyState(bool[] swiatla)
+        public Tuple<int, int> modifyState(bool[] swiatla)
         {
             int najwieksza = 0;
+            int suma = 0;
+
             for (int i = 0; i < swiatla.Length;i++)
             {
                 if (swiatla[i])
                 {
                     Pas foo = (Pas)wszystkiePasy[i];
                     int wyzerowana = foo.wyzeroj();
+                    suma += wyzerowana;
                     if (wyzerowana > najwieksza) najwieksza = wyzerowana;
                 }
             }
-            return najwieksza;
+            Tuple<int, int> zmiany = new Tuple<int, int>(najwieksza, suma);//największa,suma
+            return zmiany;
         }
 
         public bool isEmpty()
