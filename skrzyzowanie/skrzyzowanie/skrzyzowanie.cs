@@ -6,20 +6,33 @@ using System.Threading.Tasks;
 
 namespace skrzyzowanie
 {
-    class Skrzyzowanie
-    {
-        Dictionary<String, Pas> Pasy = new Dictionary<string,Pas>();
+    class Skrzyzowanie {
+        Dictionary<String, List<Pas> > Pasy = new Dictionary<String,List<Pas> >();
 
-
-
+        public Skrzyzowanie() {
+            this.Pasy.Add("N", new List<Pas> { new Pas(kierynek) });
+        }
     }
+
+    enum kierunek { 
+        lewo, prosto, prawo 
+    };
 
     class Pas
     {
-        enum kierunek { lewo, prosto, prawo };
         kierunek kier;
         int iloscSamochodow;
         bool czyRuchDozwolony;
         int kosztWlaczenia;
+
+        public Pas() {
+        }
+
+        public Pas(kierunek kieru, int iloscSamochodow, bool czyRuchDozwolony, int kosztWlaczenia) {
+            this.kier = kieru;
+            this.iloscSamochodow = iloscSamochodow;
+            this.czyRuchDozwolony = czyRuchDozwolony;
+            this.kosztWlaczenia = kosztWlaczenia;
+        }
     }
 }
