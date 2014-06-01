@@ -8,23 +8,23 @@ namespace skrzyzowanie
 {
     class SkrzyzowanieSolver
     {
-        public int solveSkrzyzowanie(Skrzyzowanie skrzyzowanie) {
+        public SolverProcess solveSkrzyzowanie(Skrzyzowanie skrzyzowanie) {
             int lightChanges = 0;
             SwiatlaGenerator sw = new SwiatlaGenerator();
             Walidator walidator = new Walidator();
-            while (!skrzyzowanie.isEmpty())
-            {
+            SolverProcess process = new SolverProcess(skrzyzowanie);
+            while (!skrzyzowanie.isEmpty()) {
                 bool[] nextSwiatlaState = sw.generateNextVec(12);
 
-                while (!walidator.walidacja(nextSwiatlaState))
-                {
+                while (!walidator.walidacja(nextSwiatlaState)) {
                     nextSwiatlaState = sw.generateNextVec(12);
                 }
-                skrzyzowanie.modifyState(nextSwiatlaState);
+                Tuple<int,int,int> modificationValues = skrzyzowanie.modifyState(nextSwiatlaState);
+                process.addStep(new SolverStep(nextSwiatlaState, modificationValues));
                 
                 lightChanges++;
             }
-            return lightChanges;
+            return process;
         }
     }
 }
