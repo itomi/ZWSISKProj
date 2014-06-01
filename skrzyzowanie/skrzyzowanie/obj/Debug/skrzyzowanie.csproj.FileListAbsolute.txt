@@ -8,3 +8,4 @@ C:\projekty\zwsisk\ZWSISKProj\skrzyzowanie\skrzyzowanie\obj\Debug\skrzyzowanie.P
 C:\projekty\zwsisk\ZWSISKProj\skrzyzowanie\skrzyzowanie\obj\Debug\skrzyzowanie.csproj.GenerateResource.Cache
 C:\projekty\zwsisk\ZWSISKProj\skrzyzowanie\skrzyzowanie\obj\Debug\skrzyzowanie.exe
 C:\projekty\zwsisk\ZWSISKProj\skrzyzowanie\skrzyzowanie\obj\Debug\skrzyzowanie.pdb
+D:\Dane\Studia\zarzadzanie w systemach i sieciach komputerowych\projekt\lol2\skrzyzowanie\skrzyzowanie\bin\Debug\skrzyzowanie.exe.config
