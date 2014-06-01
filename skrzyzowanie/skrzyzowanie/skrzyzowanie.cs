@@ -123,6 +123,17 @@ namespace skrzyzowanie
 
         public bool isEmpty()
         {
+            foreach (Pas pasik in wszystkiePasy)
+            {
+                if(Convert.ToBoolean(pasik.getIloscSamochodow())) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public bool isEmpty2()
+        {
             foreach(KeyValuePair<String, List<Pas> > pas in Pasy) {
                 List<Pas> pasyList = pas.Value;
                 foreach (Pas pasik in pasyList)
@@ -147,14 +158,14 @@ namespace skrzyzowanie
 
             s.setPasy(listaPasow);
 
-            Pas[] pasy = (Pas[])(listaPasow.GetRange(0, 3).ToArray());
-            dictionary.Add("N", new List<Pas>( pasy ));
-            pasy = (Pas[])(listaPasow.GetRange(4, 3).ToArray());
-            dictionary.Add("E", new List<Pas>( pasy ));
-            pasy = (Pas[])(listaPasow.GetRange(7, 3).ToArray());
-            dictionary.Add("W", new List<Pas>( pasy ));
-            pasy = (Pas[])(listaPasow.GetRange(10, 3).ToArray());
-            dictionary.Add("S", new List<Pas>( pasy ));
+            object[] pasy = (listaPasow.GetRange(0, 3).ToArray());
+            dictionary.Add("N", new List<Pas>{ (Pas)pasy[0], (Pas)pasy[1], (Pas)pasy[2] });
+            pasy = (listaPasow.GetRange(3, 3).ToArray());
+            dictionary.Add("E", new List<Pas> { (Pas)pasy[0], (Pas)pasy[1], (Pas)pasy[2] });
+            pasy = (listaPasow.GetRange(6, 3).ToArray());
+            dictionary.Add("W", new List<Pas> { (Pas)pasy[0], (Pas)pasy[1], (Pas)pasy[2] });
+            pasy = (listaPasow.GetRange(9, 3).ToArray());
+            dictionary.Add("S", new List<Pas>{ (Pas)pasy[0], (Pas)pasy[1], (Pas)pasy[2] });
 
             return s;
         }

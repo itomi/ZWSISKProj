@@ -10,6 +10,18 @@ namespace skrzyzowanie
         private static int seedValue = 123123123 + Environment.TickCount;
         private static bool[] lastOccured = { false, false, false, false, false, false, false, false, false, false, false, false};
 
+        public bool[] generateBasingOnPrevious(bool[] data)
+        {
+            bool[] values = new bool[data.Length];
+
+            for (int i = 0; i < values.Length; i++)
+            {
+                values[i] = ( data[i] ? randomize() : false );
+            }
+
+            return values;
+        }
+
         public bool[] generateNextVec(int length) {
             List<bool> vec = new List<bool>();
 
