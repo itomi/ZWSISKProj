@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SkrzyzowanieSolver.cs" />
+    <Compile Include="GeneratorSkrzyzowania.cs" />
     <Compile Include="SolverStep.cs" />
     <Compile Include="SwiatlaGenerator.cs" />
     <Compile Include="skrzyzowanie.cs" />
