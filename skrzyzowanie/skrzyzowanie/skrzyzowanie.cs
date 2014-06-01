@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,33 +9,54 @@ namespace skrzyzowanie
 {
     class Skrzyzowanie {
         Dictionary<String, List<Pas> > Pasy = new Dictionary<String,List<Pas> >();
-
+        ArrayList wszystkiePasy = new ArrayList();
         public Skrzyzowanie() {
-            this.Pasy.Add("N", new List<Pas> { 
+            
+            List<Pas> nPasy =new List<Pas> { 
                 new Pas(kierunek.lewo, 10, false, 5),
                 new Pas(kierunek.prosto, 10,false, 2),
                 new Pas(kierunek.prawo, 10, false, 1) 
-            });
-            this.Pasy.Add("E", new List<Pas> { 
+                };
+            this.Pasy.Add("N", nPasy);
+
+            List<Pas> ePasy = new List<Pas> { 
                 new Pas(kierunek.lewo, 10, false, 5),
                 new Pas(kierunek.prosto, 10,false, 2),
                 new Pas(kierunek.prawo, 10, false, 1) 
-            });
-            this.Pasy.Add("W", new List<Pas> { 
+                };
+            this.Pasy.Add("E", ePasy);
+
+            List<Pas> wPasy = new List<Pas> { 
                 new Pas(kierunek.lewo, 10, false, 5),
                 new Pas(kierunek.prosto, 10,false, 2),
                 new Pas(kierunek.prawo, 10, false, 1) 
-            });
-            this.Pasy.Add("S", new List<Pas> { 
+                };
+            this.Pasy.Add("W", wPasy);
+
+            List<Pas> sPasy = new List<Pas> { 
                 new Pas(kierunek.lewo, 10, false, 5),
                 new Pas(kierunek.prosto, 10,false, 2),
                 new Pas(kierunek.prawo, 10, false, 1) 
-            });
+                };
+            this.Pasy.Add("S", sPasy);
+
+            wszystkiePasy.AddRange(nPasy);
+            wszystkiePasy.AddRange(ePasy);
+            wszystkiePasy.AddRange(wPasy);
+            wszystkiePasy.AddRange(sPasy);
+
         }
 
         public Skrzyzowanie modifyState(bool[] swiatla)
         {
-            
+            for (int i = 0; i < swiatla.Length;i++)
+            {
+                if (swiatla[i])
+                {
+                    Pas foo = (Pas)wszystkiePasy[i];
+                    foo.wyzeroj();
+                }
+            }
             return this;
         }
 
@@ -63,6 +85,7 @@ namespace skrzyzowanie
         int iloscSamochodow;
         bool czyRuchDozwolony { get; set; }
         int kosztWlaczenia { get; set; }
+        int licznik;
 
         public Pas() {
         }
@@ -77,6 +100,11 @@ namespace skrzyzowanie
         public int getIloscSamochodow()
         {
             return this.iloscSamochodow;
+        }
+
+        public void wyzeroj()
+        {
+            iloscSamochodow = 0;
         }
     }
 }
