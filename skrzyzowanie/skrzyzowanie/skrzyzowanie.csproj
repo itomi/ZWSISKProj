@@ -44,8 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SkrzyzowanieSolver.cs" />
     <Compile Include="GeneratorSkrzyzowania.cs" />
+    <Compile Include="SkrzyzowanieSolver.cs" />
+    <Compile Include="SolverProcess.cs" />
     <Compile Include="SolverStep.cs" />
     <Compile Include="SwiatlaGenerator.cs" />
     <Compile Include="skrzyzowanie.cs" />
