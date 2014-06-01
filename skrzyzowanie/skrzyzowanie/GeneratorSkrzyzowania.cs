@@ -8,5 +8,11 @@ namespace skrzyzowanie
 {
     class GeneratorSkrzyzowania
     {
+        public void generujSkrzyzowanie()
+        {
+
+        }
+
+
     }
 }

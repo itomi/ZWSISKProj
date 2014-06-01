@@ -47,6 +47,44 @@ namespace skrzyzowanie
 
         }
 
+        public Skrzyzowanie(int nl, int nf, int nr, int el, int ef, int er, int wl, int wf, int wr, int sl, int sf, int sr, int lv, int fv, int rv)
+        {
+
+            List<Pas> nPasy = new List<Pas> { 
+                new Pas(kierunek.lewo, nl, false, lv),
+                new Pas(kierunek.prosto, nf,false, fv),
+                new Pas(kierunek.prawo, nr, false, rv) 
+                };
+            this.Pasy.Add("N", nPasy);
+
+            List<Pas> ePasy = new List<Pas> { 
+                new Pas(kierunek.lewo, el, false, lv),
+                new Pas(kierunek.prosto, ef,false, fv),
+                new Pas(kierunek.prawo, er, false, rv) 
+                };
+            this.Pasy.Add("E", ePasy);
+
+            List<Pas> wPasy = new List<Pas> { 
+                new Pas(kierunek.lewo, wl, false, lv),
+                new Pas(kierunek.prosto, wf,false, fv),
+                new Pas(kierunek.prawo, wr, false, rv) 
+                };
+            this.Pasy.Add("W", wPasy);
+
+            List<Pas> sPasy = new List<Pas> { 
+                new Pas(kierunek.lewo, sl, false, lv),
+                new Pas(kierunek.prosto, sf,false, fv),
+                new Pas(kierunek.prawo, sr, false, rv) 
+                };
+            this.Pasy.Add("S", sPasy);
+
+            wszystkiePasy.AddRange(nPasy);
+            wszystkiePasy.AddRange(ePasy);
+            wszystkiePasy.AddRange(wPasy);
+            wszystkiePasy.AddRange(sPasy);
+
+        }
+
         public Tuple<int, int> modifyState(bool[] swiatla)
         {
             int najwieksza = 0;
