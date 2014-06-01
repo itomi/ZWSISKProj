@@ -31,6 +31,26 @@ namespace skrzyzowanie
                 new Pas(kierunek.prawo, 10, false, 1) 
             });
         }
+
+        public Skrzyzowanie modifyState(bool[] swiatla)
+        {
+            
+            return this;
+        }
+
+        public bool isEmpty()
+        {
+            foreach(KeyValuePair<String, List<Pas> > pas in Pasy) {
+                List<Pas> pasyList = pas.Value;
+                foreach (Pas pasik in pasyList)
+                {
+                    if (Convert.ToBoolean(pasik.getIloscSamochodow())) {
+                        return false;
+                    }
+                }
+            }
+            return false;
+        }
     }
 
     enum kierunek { 
@@ -41,17 +61,22 @@ namespace skrzyzowanie
     {
         kierunek kier;
         int iloscSamochodow;
-        bool czyRuchDozwolony;
-        int kosztWlaczenia;
+        bool czyRuchDozwolony { get; set; }
+        int kosztWlaczenia { get; set; }
 
         public Pas() {
         }
 
-        public Pas(kierunek kieru, int iloscSamochodow, bool czyRuchDozwolony, int kosztWlaczenia) {
+        public Pas(kierunek kieru, int iloscSamochodow, bool czyRuchDozwolony, int kosztWlaczenia)  {
             this.kier = kieru;
             this.iloscSamochodow = iloscSamochodow;
             this.czyRuchDozwolony = czyRuchDozwolony;
             this.kosztWlaczenia = kosztWlaczenia;
+        }
+
+        public int getIloscSamochodow()
+        {
+            return this.iloscSamochodow;
         }
     }
 }
