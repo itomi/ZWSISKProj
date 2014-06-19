@@ -21,6 +21,11 @@ namespace skrzyzowanie
             this.listOfSteps.Add(step);
         }
 
+        public int getSingalChangesCount()
+        {
+            return this.listOfSteps.Count;
+        }
+
         public float getProcessValue() {
             float processValue = 0;
             for( int stepNumber = 0 ; stepNumber < listOfSteps.Count ; stepNumber++ ) {
