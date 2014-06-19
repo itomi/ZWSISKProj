@@ -9,3 +9,11 @@ C:\projekty\zwsisk\ZWSISKProj\skrzyzowanie\skrzyzowanie\obj\Debug\skrzyzowanie.c
 C:\projekty\zwsisk\ZWSISKProj\skrzyzowanie\skrzyzowanie\obj\Debug\skrzyzowanie.exe
 C:\projekty\zwsisk\ZWSISKProj\skrzyzowanie\skrzyzowanie\obj\Debug\skrzyzowanie.pdb
 D:\Dane\Studia\zarzadzanie w systemach i sieciach komputerowych\projekt\lol2\skrzyzowanie\skrzyzowanie\bin\Debug\skrzyzowanie.exe.config
+D:\Dane\Studia\zarzadzanie w systemach i sieciach komputerowych\projekt\lol2\skrzyzowanie\skrzyzowanie\bin\Debug\skrzyzowanie.exe
+D:\Dane\Studia\zarzadzanie w systemach i sieciach komputerowych\projekt\lol2\skrzyzowanie\skrzyzowanie\bin\Debug\skrzyzowanie.pdb
+D:\Dane\Studia\zarzadzanie w systemach i sieciach komputerowych\projekt\lol2\skrzyzowanie\skrzyzowanie\obj\Debug\skrzyzowanie.csprojResolveAssemblyReference.cache
+D:\Dane\Studia\zarzadzanie w systemach i sieciach komputerowych\projekt\lol2\skrzyzowanie\skrzyzowanie\obj\Debug\skrzyzowanie.Form1.resources
+D:\Dane\Studia\zarzadzanie w systemach i sieciach komputerowych\projekt\lol2\skrzyzowanie\skrzyzowanie\obj\Debug\skrzyzowanie.Properties.Resources.resources
+D:\Dane\Studia\zarzadzanie w systemach i sieciach komputerowych\projekt\lol2\skrzyzowanie\skrzyzowanie\obj\Debug\skrzyzowanie.csproj.GenerateResource.Cache
+D:\Dane\Studia\zarzadzanie w systemach i sieciach komputerowych\projekt\lol2\skrzyzowanie\skrzyzowanie\obj\Debug\skrzyzowanie.exe
+D:\Dane\Studia\zarzadzanie w systemach i sieciach komputerowych\projekt\lol2\skrzyzowanie\skrzyzowanie\obj\Debug\skrzyzowanie.pdb
