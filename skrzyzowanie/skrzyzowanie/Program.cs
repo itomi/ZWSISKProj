@@ -34,37 +34,40 @@ namespace skrzyzowanie
             }
 
             StreamWriter sw = new StreamWriter(Environment.TickCount.ToString() + ".csv");
-            sw.Write("Liczba prob rozwiazania\tAktualna najlepsza wartosc\tIlosc zmian swiatel\tCzas rozwiazywania\n");
+            sw.Write("Liczba prob rozwiazania\tNajlepsze rozwiazanie\tIlosc zmian swiatel\tCzas rozwiazywania\n");
             Skrzyzowanie instancjaSkrzyzowania = gs.generujSkrzyzowanie(4, 20, 5, 3, 2);
             SolverProcess best = solver.solveSkrzyzowanie(instancjaSkrzyzowania.copy());
 
-            //for (int solvingTries = 1000; solvingTries < 10000100; solvingTries+=200000)
+            for (int solvingTries = 1000; solvingTries < 10000100; solvingTries+=200000)
             {
-                int solvingTries = 100;
                 float bestValue = float.MinValue;
                 SolverProcess process = null;
 
-                Skrzyzowanie instancjaSkrzyzowaniaCopy = instancjaSkrzyzowania.copy();
-
                 int begining = Environment.TickCount;
+                int delta = 0;
+                long deltasum = 0;
                 for (int i = 0; i < solvingTries; i++)
                 {
+                    Skrzyzowanie instancjaSkrzyzowaniaCopy = instancjaSkrzyzowania.copy();
+
+                    begining = Environment.TickCount; // poczatek liczenia naszego skrzyzowania
                     process = solver.solveSkrzyzowanie(instancjaSkrzyzowaniaCopy);
+                    delta = Environment.TickCount - begining; // koniec liczenia rozwiazania pojedynczego
+
                     float actual = process.getProcessValue();
                     if (actual > bestValue)
                     {
                         bestValue = actual;
                         best = process;
                     }
-                    if (i % 1 == 0)// && i != 0)
-                    {
-                        int delta = Environment.TickCount - begining;
-                        //int delta = i;
-                        System.Console.WriteLine(solvingTries + "\t" + bestValue + "\t" + actual + "\t" + best.getSingalChangesCount() + "\t" + delta + "\n");
+                    
 
-                        sw.Write(solvingTries + "\t" + bestValue + "\t" + best.getSingalChangesCount() + "\t" + delta + "\n");
-                    }
+                    deltasum += delta; // zsumowanie czasu np 1000 prob rozwiazania tej samej instancji
                 }
+                System.Console.WriteLine(solvingTries + "\t" + bestValue + "\t" + best.getSingalChangesCount() + "\t" + deltasum + "\n");
+
+                sw.Write(solvingTries + "\t" + bestValue + "\t" + best.getSingalChangesCount() + "\t" + deltasum + "\n");
+
             }
 
             sw.Close();

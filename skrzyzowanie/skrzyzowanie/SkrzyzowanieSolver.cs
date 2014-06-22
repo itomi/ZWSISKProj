@@ -60,7 +60,7 @@ namespace skrzyzowanie
                     nextSwiatlaState = sw.generateBasingOnPrevious(wektor);
 //                    nextSwiatlaState = wywalNiepotrzebneOtware(nextSwiatlaState);
                 }
-               Console.WriteLine(nextSwiatlaState);
+              
                 Tuple<int,int,int> modificationValues = skrzyzowanie.modifyState(nextSwiatlaState);
                 process.addStep(new SolverStep(nextSwiatlaState, modificationValues));
                 
