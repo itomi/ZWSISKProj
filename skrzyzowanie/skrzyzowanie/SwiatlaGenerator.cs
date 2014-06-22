@@ -9,6 +9,12 @@ namespace skrzyzowanie
     class SwiatlaGenerator {
         private static int seedValue = 123123123 + Environment.TickCount;
         private static bool[] lastOccured = { false, false, false, false, false, false, false, false, false, false, false, false};
+        Random radom;
+
+        public SwiatlaGenerator()
+        {
+            radom = Lotto.radom;
+        }
 
         public bool[] generateBasingOnPrevious(bool[] data)
         {
@@ -24,7 +30,8 @@ namespace skrzyzowanie
 
         public bool[] generateNextVec(int length) {
             List<bool> vec = new List<bool>();
-
+            //seedValue = 123123123 + Environment.TickCount;
+            //radom = new Random();
             for(int i = 0 ; i < length ; i++ ) {
                 vec.Add(randomize());
             }
@@ -33,7 +40,7 @@ namespace skrzyzowanie
         }
 
         private bool randomize() {
-            Random radom = new Random(seedValue);
+            //Random radom = new Random(seedValue);
             seedValue = radom.Next();
 
             return Convert.ToBoolean(seedValue % 2);

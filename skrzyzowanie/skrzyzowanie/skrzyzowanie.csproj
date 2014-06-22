@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GeneratorSkrzyzowania.cs" />
+    <Compile Include="Lotto.cs" />
     <Compile Include="SkrzyzowanieSolver.cs" />
     <Compile Include="SolverProcess.cs" />
     <Compile Include="SolverStep.cs" />

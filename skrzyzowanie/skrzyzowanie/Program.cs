@@ -12,9 +12,12 @@ namespace skrzyzowanie
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// 
+        
         [STAThread]
         static void Main()
         {
+            Lotto.seeduj();
             Application.EnableVisualStyles();
 
             GeneratorSkrzyzowania gs = new GeneratorSkrzyzowania();
@@ -35,8 +38,9 @@ namespace skrzyzowanie
             Skrzyzowanie instancjaSkrzyzowania = gs.generujSkrzyzowanie(4, 20, 5, 3, 2);
             SolverProcess best = solver.solveSkrzyzowanie(instancjaSkrzyzowania.copy());
 
-            for (int solvingTries = 1000; solvingTries < 10000100; solvingTries+=200000)
+            //for (int solvingTries = 1000; solvingTries < 10000100; solvingTries+=200000)
             {
+                int solvingTries = 100;
                 float bestValue = float.MinValue;
                 SolverProcess process = null;
 
@@ -52,12 +56,15 @@ namespace skrzyzowanie
                         bestValue = actual;
                         best = process;
                     }
-                }
-                int delta = Environment.TickCount - begining;
-                System.Console.WriteLine(solvingTries + "\t" + bestValue  +"\t" + best.getSingalChangesCount() +"\t" + delta + "\n");
+                    if (i % 1 == 0)// && i != 0)
+                    {
+                        int delta = Environment.TickCount - begining;
+                        //int delta = i;
+                        System.Console.WriteLine(solvingTries + "\t" + bestValue + "\t" + actual + "\t" + best.getSingalChangesCount() + "\t" + delta + "\n");
 
-                sw.Write(solvingTries + "\t" + bestValue + "\t" + best.getSingalChangesCount()  +"\t" + delta + "\n");
-                
+                        sw.Write(solvingTries + "\t" + bestValue + "\t" + best.getSingalChangesCount() + "\t" + delta + "\n");
+                    }
+                }
             }
 
             sw.Close();
